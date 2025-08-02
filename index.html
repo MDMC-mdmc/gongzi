@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钓场记账系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">钓场记账系统</h1>
+
+        <!-- 创建用户表单 -->
+        <div class="card mb-5">
+            <div class="card-header bg-primary text-white">
+                <h2>创建垂钓记录</h2>
+            </div>
+            <div class="card-body">
+                <form id="fishingForm">
+                    <div class="mb-3">
+                        <label for="seatNumber" class="form-label">座位号</label>
+                        <input type="number" class="form-control" id="seatNumber" required min="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="startTime" class="form-label">开始时间</label>
+                        <input type="datetime-local" class="form-control" id="startTime" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fishingHours" class="form-label">垂钓时长 (小时)</label>
+                        <input type="number" class="form-control" id="fishingHours" required min="1" step="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">添加记录</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 座位号显示 -->
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h2>已预订座位</h2>
+            </div>
+            <div class="card-body">
+                <div id="seatContainer" class="grid grid-cols-5 gap-3">
+                    <!-- 座位号将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 历史回鱼记录 -->
+    <div class="card mt-5">
+        <div class="card-header bg-info text-white">
+            <h2>历史回鱼记录</h2>
+        </div>
+        <div class="card-body">
+            <button id="viewHistoryBtn" class="btn btn-info mb-3">查看历史回鱼记录</button>
+            <div id="historyContainer" class="grid grid-cols-history gap-3 d-none">
+                <!-- 历史记录将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

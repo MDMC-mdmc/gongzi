@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂钓详情</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h1>垂钓详情</h1>
+                <div class="seat-number-container d-flex align-items-center">
+                    <h2>座位号: <span id="detailSeatNumber"></span></h2>
+                    <button id="editSeatNumberBtn" class="btn btn-primary ms-3 btn-sm">修改</button>
+                </div>
+                <div id="seatNumberEditContainer" class="mt-2 d-none">
+                    <input type="number" id="newSeatNumber" class="form-control" placeholder="输入新座位号">
+                    <div class="d-flex mt-2">
+                        <button id="confirmSeatChangeBtn" class="btn btn-success me-2">确认</button>
+                        <button id="cancelSeatChangeBtn" class="btn btn-secondary">取消</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 总重量和总金额显示 -->
+            <div class="summary-container">
+                <div class="summary-item">
+                    <div>总重量</div>
+                    <div id="totalWeight" class="summary-value">0 斤</div>
+                </div>
+                <div class="summary-item">
+                    <div>回鱼金额</div>
+                    <div id="fishAmount" class="summary-value">0 元</div>
+                </div>
+                <div class="summary-item">
+                    <div>总金额</div>
+                    <div id="totalAmount" class="summary-value">0 元</div>
+                </div>
+                <div class="summary-item">
+                    <div>需支付金额</div>
+                    <div id="payableAmount" class="summary-value">0 元</div>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">开始时间:</div>
+                <div id="detailStartTime" class="editable-time"></div>
+                <input type="datetime-local" id="startTimeInput" class="form-control mt-2 d-none">
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">结束时间:</div>
+                <div id="detailEndTime" class="editable-time"></div>
+                <input type="datetime-local" id="endTimeInput" class="form-control mt-2 d-none">
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">垂钓时长:</div>
+                <div id="detailFishingHours" class="editable-time"></div>
+                <input type="number" id="fishingHoursInput" class="form-control mt-2 d-none" min="1" step="0.5">
+            </div>
+
+            <hr>
+
+            <h3>回鱼重量</h3>
+            <div class="weight-input mb-4">
+                <input type="number" id="fishWeight" class="form-control" placeholder="输入回鱼重量 (斤)" min="0.1" step="0.1">
+                <button id="addWeight" class="btn btn-primary mt-2">添加重量</button>
+            </div>
+            <ul id="weightList" class="list-group mb-4"></ul>
+
+            <hr>
+
+            <h3>其他物品</h3>
+            <div class="other-item-input mb-4">
+                <div class="input-group">
+                    <input type="text" id="itemName" class="form-control" placeholder="物品名称">
+                    <input type="number" id="itemAmount" class="form-control" placeholder="金额 (元)" min="0.01" step="0.01">
+                </div>
+                <button id="addItem" class="btn btn-primary mt-2">添加物品</button>
+            </div>
+            <ul id="itemList" class="list-group mb-4"></ul>
+
+            <div class="d-flex justify-content-between">
+        <button id="btnBack" class="btn btn-secondary btn-back">返回主页</button>
+        <button id="btnComplete" class="btn btn-success">完成回鱼</button>
+    </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

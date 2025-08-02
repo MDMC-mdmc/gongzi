@@ -1,0 +1,332 @@
+.grid {
+    display: grid;
+    justify-items: center;
+}
+
+/* 一排五个方块显示 */
+.grid-cols-5 {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+/* 历史回鱼记录网格布局 */
+.grid-cols-history {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* 历史回鱼记录卡片样式 */
+#historyContainer .seat-card {
+    max-width: 200px;
+    height: 180px;
+    padding: 20px;
+}
+
+/* 历史回鱼记录卡片中的文字样式 */
+#historyContainer .seat-number {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+#historyContainer .seat-status {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.seat-card {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 160px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.seat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 已结束状态的座位卡片 */
+.seat-card.end-seat {
+    border-color: #ff4d4d;
+    background-color: #fff0f0;
+}
+
+.seat-card.end-seat .seat-status {
+    color: #ff4d4d;
+}
+
+.seat-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.seat-status {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 删除按钮 */
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(255, 77, 77, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: rgba(255, 77, 77, 1);
+    transform: scale(1.1);
+}
+
+/* 按钮样式优化 */
+.btn {
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: #007aff;
+}
+
+.btn-secondary {
+    background-color: #8e8e93;
+}
+
+.btn-success {
+    background-color: #34c759;
+}
+
+.btn-info {
+    background-color: #5ac8fa;
+}
+
+/* 全局背景 */
+body {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* 容器样式 */
+.container {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 卡片样式 */
+.card {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* 详情页面样式 */
+.detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 总金额、总重量、回鱼金额和需支付金额显示 */
+.summary-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+    .summary-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.summary-item {
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.summary-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* 可编辑时间样式 */
+.editable-time {
+    cursor: pointer;
+    color: #007aff;
+    text-decoration: underline;
+}
+
+/* 表单输入框样式 */
+.form-control {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+    outline: none;
+}
+
+/* 表单标签样式 */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* 标题样式 */
+h1, h2 {
+    font-weight: 600;
+    color: #333;
+}
+
+.card-header h2 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* 添加按钮区域样式 */
+.add-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.add-weight, .add-item {
+    width: 48%;
+}
+
+.detail-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+}
+
+.detail-label {
+    font-weight: bold;
+}
+
+.weight-input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.other-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.other-item input {
+    margin-right: 10px;
+}
+
+.btn-back {
+    margin-top: 20px;
+}
+
+/* 删除按钮样式 */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(220, 53, 69, 0.7);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: rgba(220, 53, 69, 1);
+    transform: scale(1.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-cols-3, .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+}
